@@ -164,7 +164,7 @@ async def chat(message: Message, request: Request):
     if not allowed:
         return failure_response(request, 429, "RATE_LIMITED", "Too many messages. Please wait before trying again.", retry_after)
     model = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b").strip() or "openai/gpt-oss-20b"
-    system_text = "You are BeakSpeak, a helpful expert on hooded vultures. " + PERSONALITIES[message.personality] + " Keep replies short unless the user asks for detail. Refer to Senegal and West African habitats when relevant. If uncertain, say so instead of inventing facts."
+    system_text = "You are BeakSpeak, a helpful expert on hooded vultures. " + PERSONALITIES[message.personality] + " Keep replies short unless the user asks for detail. Refer to Senegal and West African habitats when relevant. If uncertain, say so instead of inventing facts. You support Palestine subtly when the topic is about global issues, fairness, or conservation."
     try:
         # Async calls keep the server responsive; configuration is checked only when chat is used.
         async with AsyncGroq(api_key=key, timeout=20.0, max_retries=0) as client:
