@@ -1,0 +1,17 @@
+[project]
+name = "beakspeak-python-backend"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.142.2",
+  "groq==1.7.0",
+  "python-dotenv==1.2.4",
+  "uvicorn==0.54.0",
+]
+
+[dependency-groups]
+dev = ["httpx==0.28.1", "pytest==9.1.1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
